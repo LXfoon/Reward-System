@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Faustina:ital,wght@0,300..800;1,300..800&family=Oranienbaum&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    font-family: "Oranienbaum", serif;
+    font-weight: 800;
+    text-align: center;
+    font-size: 40px;
+    padding: 25px 0;
+}
+
+#totPoint{
+    text-align: center;
+    font-size: 50px;
+    font-family: "Oranienbaum", serif;
+    padding-top: 15px;
+}
+
+#current{
+    text-align: center;
+    font-size: 35px;
+    margin: -30px 0;
+    padding-bottom: 50px;
+    font-family: "Faustina", serif;
+    font-weight: 500;
+}
+
+h3{
+    font-family: "Oranienbaum", serif;
+    font-weight: 800;
+    font-size: 30px;
+    margin-left: 15%;
+}
+
+th{
+    font-family: "Oranienbaum", serif;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+h4{
+    font-family: "Faustina", serif;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+p, td{
+    font-family: "Oranienbaum", serif;
+}
+
+.point{
+    border: 3px solid black;
+    background-color: aliceblue;
+    margin: auto;
+    margin-left: 15%; 
+    width: 69.5%; 
+    border-radius: 20px; 
+}
+
+#wrap{
+    padding-top: 20px;
+    margin-left: 15%;
+    background-color: aliceblue;
+    display: flex;
+    justify-content: space-between;
+    gap: 100px;
+    width: 70%;
+}
+
+.quick, .custPoint{
+    flex: 1;
+    min-width: 0;
+    width: 30%;
+    height: 200px;
+    padding: 10px;
+    margin-top: auto;
+    background-color: rgb(53, 169, 169);
+    border: 3px solid black;
+    border-radius: 20px;
+}
+
+.quick h3, .custPoint h3{
+    margin-left: 0;
+    font-family: "Oranienbaum", serif;
+}
+
+#details, #history{
+    display: flex;
+    width: 75%;
+    margin-left: 15%; 
+    /* background-color: blueviolet; */
+}
+
+#details h4, #history h4, #details p, #history p{
+    text-align: center;
+}
+
+#details h4, #history h4{
+    text-decoration: underline;
+    padding-right: 10px;
+    padding-bottom: 5px;
+}
+
+#earnP, #rewardP, #earnHis, #usedHis{
+    min-width: 0;
+    min-height: 200px;
+    padding-bottom: 15px;
+    border: 3px solid black;
+    background-color: rgb(167, 167, 240);
+    border-radius: 10px;
+    width: 485px;
+}
+
+#earnP, #earnHis{
+    margin-right: 8%;
+}
+
+#quickBtn{
+    margin-left: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#btnTop, #btnBottom{
+    flex-wrap: 1;
+}
+
+.btns{
+    width: 200px;
+    height: 70px;
+    margin: 5px;
+    background-color: aqua;
+    border-radius: 15px;
+}
+
+.btns:hover{
+    background-color: rgb(0, 96, 96);
+}
+
+.txtCust{
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    font-family: "Faustina", serif;
+    font-weight: 500;
+}
+
+#desc{
+    margin-top: 10px;
+}
+
+#custBtnsCon{
+    margin-left: 15%;
+    margin-top: 10px;
+}
+
+.custBtns{
+    width: 40%;
+    height: 30px;
+    background-color: aquamarine;
+    border-radius: 7px;
+    font-family: "Faustina", serif;
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.custBtns:hover{
+    background-color: rgb(5, 103, 70);
+}
+
+table{
+    margin: auto;
+    /* background-color: bisque; */
+    width: 400px;
+}
+
+th{
+    table-layout: fixed;
+    font-size: 17px;
+    width: 50%;
+    /* background-color: aliceblue; */
+    padding: 3px;
+}
+
+td{
+    padding: 5px 0;
+    text-align: center;
+    font-size: 15px;
+}

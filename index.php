@@ -54,6 +54,7 @@ if(isset($_POST['quickSel'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Point System</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Productivity Reward System</h1>
@@ -77,65 +78,74 @@ if(isset($_POST['quickSel'])){
                     $minus = $negRow['total_neg'];
                 }
                 
-                echo $sum - $minus;
+                echo "<p id = 'totPoint'>".$sum - $minus."</p>";
+                echo "<br><p id = 'current'>Current points</p>";
             ?>
         </h2>
     </div>
-
-    <div class="presetPoint">
-        <div class="presetPoin">
+<hr>
+    
+<div id="wrap">
+    <div class="quick">
         <h3>Quick Select</h3>
 
-        <div class="quick">
-                <form action="" method = "post">
-                    <button name = "quickSel" value="five">
-                        <h4>+5</h4>
-                        <p>Small tasks</p>
-                    </button>
+        <div id="quickBtn">
+        <form action="" method = "post">
+            <div id="btnsTop">
+            <button name = "quickSel" value="five" class="btns">
+                <h4>+5</h4>
+                <p>Small tasks</p>
+            </button>
+            
+            <button name = "quickSel" value="ten" class="btns">
+                <h4>+10</h4>
+                <p>Medium tasks</p>
+            </button>
+            </div>
 
-                    <button name = "quickSel" value="ten">
-                        <h4>+10</h4>
-                        <p>Medium tasks</p>
-                    </button>
+            <div id="btnsBottom">
+            <button name = "quickSel" value="twenty" class="btns">
+                <h4>+20</h4>
+                <p>Big tasks</p>
+            </button>
 
-                    <button name = "quickSel" value="twenty">
-                        <h4>+20</h4>
-                        <p>Big tasks</p>
-                    </button>
-
-                    <button name = "quickSel" value="fifty">
-                        <h4>+50</h4>
-                        <p>Hard tasks</p>
-                    </button>
-                </form>
+            <button name = "quickSel" value="fifty" class="btns">
+                <h4>+50</h4>
+                <p>Hard tasks</p>
+            </button>
+            </div>
+        </form>
         </div>
-        
     </div>
 
     <div class="custPoint">
          <form action="" method = "post">
-            <hr>
             <h3>Custom Point</h3>
 
-            <p>Point Amount: 
-            <input type="number" name="pointAmount" require>
+            <p>Point Amount: <br>
+            <input type="number" name="pointAmount" class="txtCust" placeholder= "Enter amount..." require>
             </p>
 
-            <p>Description: 
-            <input type="text" name="description">
+            <p id="desc">Description: <br>
+            <input type="text" name="description" class="txtCust" placeholder="Enter details..."> 
             </p>
 
-            <button name="custBtn" value="pos">+</button>
-            <button name="custBtn" value  = "neg">-</button>
-                
+            <div id="custBtnsCon">
+            <button name="custBtn" value="pos" class="custBtns">+</button>
+            <button name="custBtn" value  = "neg" class="custBtns">-</button>
+            </div>
+
         </form>
     </div>
-    
+    </div>
+
     <br>
     <hr>
+
+    <h3>Point Distribution</h3><br>
     <div id="details">
-        <h3>Point Distribution</h3>
-        <h4>Earn Points:</h4>
+        <div id="earnP">
+        <h4>Earn Points</h4>
         <table>
             <tr>
                 <th>Tasks</th>
@@ -148,7 +158,7 @@ if(isset($_POST['quickSel'])){
             </tr>
 
             <tr>
-                <td>Wake up early</td>
+                <td>Wake up early (b4 11am)</td>
                 <td>20</td>
             </tr>
 
@@ -164,6 +174,11 @@ if(isset($_POST['quickSel'])){
             </tr>
 
             <tr>
+                <td>Drink 2 cups of water (per day)</td>
+                <td>20</td>
+            </tr>
+
+            <tr>
                 <td>Revision</td>
                 <td>10</td>
             </tr>
@@ -174,8 +189,8 @@ if(isset($_POST['quickSel'])){
             </tr>
 
             <tr>
-                <td>Stretch</td>
-                <td>5</td>
+                <td>Workout</td>
+                <td>10</td>
             </tr>
 
             <tr>
@@ -183,8 +198,10 @@ if(isset($_POST['quickSel'])){
                 <td>5</td>
             </tr>
         </table>
+        </div>
 
-        <h4>Rewards:</h4>
+        <div id="rewardP">
+        <h4>Rewards</h4>
         <table>
             <tr>
                 <th>Rewards</th>
@@ -217,65 +234,82 @@ if(isset($_POST['quickSel'])){
             </tr>
         </table>
     </div>
+    </div>
 
     <hr>
+    <h3>History</h3><br>
     <div id="history">
-        <h3>History</h3>
-        <h4>Earned: </h4>
+        <div id="earnHis">
+        <h4>Earned</h4>
+            <?php 
+            $earnSql = "SELECT * FROM point WHERE cal = 'P'";
+            $earnRes = mysqli_query($conn, $earnSql);
+
+            if(mysqli_num_rows($earnRes) >0){?>
             <table>
                 <tr>
                     <th>Tasks</th>
-                    <th>Points</th>
+                    <th>Points gained</th>
                 </tr>
 
-                    <?php
-                        $earnSql = "SELECT * FROM point WHERE cal = 'P'";
-                        $earnRes = mysqli_query($conn, $earnSql);
+                <?php
+                    while($earnRow = mysqli_fetch_assoc($earnRes)){
+                            if($earnRow['description'] == null){
+                                $title = "None";
+                            }else{
+                                $title = $earnRow['description'];
+                            }
+                            $earnAmt = $earnRow['pointNum'];?>
 
-                        while($earnRow = mysqli_fetch_assoc($earnRes)){
-                                if($earnRow['description'] == null){
-                                    $title = "None";
-                                }else{
-                                    $title = $earnRow['description'];
-                                }
-                                $earnAmt = $earnRow['pointNum'];?>
+                            <tr>
+                                <td><?php echo $title;?></td>
+                                <td><?php echo $earnAmt;?></td>
+                            </tr>
+
+                    <?php
+                    }
+            }else{
+                echo "<p>No results found</p>";
+            }
+            ?>
+            </table>
+        </div>
+
+        <div id="usedHis">
+            <h4>Used</h4>
+            <?php 
+                $usedSql = "SELECT * FROM point WHERE cal = 'N'";
+                $usedRes = mysqli_query($conn, $usedSql);
+
+                if(mysqli_num_rows($usedRes)>0) {?>
+
+                <table>
+                    <tr>
+                        <th>Reward</th>
+                        <th>Points used</th>
+                    </tr>
+
+                    <?php
+                        while($usedRow = mysqli_fetch_assoc($usedRes)){
+                            if($usedRow['description'] == null){
+                                        $reward = "None";
+                                    }else{
+                                        $reward = $usedRow['description'];
+                                    }
+                                    $pointUsed = $usedRow['pointNum'];?>
 
                                 <tr>
-                                    <td><?php echo $title;?></td>
-                                    <td><?php echo $earnAmt;?></td>
+                                    <td><?php echo $reward?></td>
+                                    <td><?php echo $pointUsed?></td>
                                 </tr>
                                 <?php
                             }
+                    }else{
+                        echo "<p>No results found</p>";
+                    }
                     ?>
-            </table>
-
-        <h4>Used: </h4>
-        <table>
-            <tr>
-                <th>Reward</th>
-                <th>Points used</th>
-            </tr>
-
-                <?php
-                    $usedSql = "SELECT * FROM point WHERE cal = 'N'";
-                    $usedRes = mysqli_query($conn, $usedSql);
-
-                    while($usedRow = mysqli_fetch_assoc($usedRes)){
-                        if($usedRow['description'] == null){
-                                    $reward = "None";
-                                }else{
-                                    $reward = $usedRow['description'];
-                                }
-                                $pointUsed = $usedRow['pointNum'];?>
-
-                            <tr>
-                                <td><?php echo $reward?></td>
-                                <td><?php echo $pointUsed?></td>
-                            </tr>
-                            <?php
-                        }
-                ?>
-            </table>
+                </table>
+            </div>
     </div>
 
 </body>
