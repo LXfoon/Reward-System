@@ -86,10 +86,10 @@ p, td{
 }
 
 .point h2{
-    color: #fd592c;
+    color: #d38069;
     font-weight: 900;
     -webkit-text-stroke-width: 0.5px;
-    -webkit-text-stroke-color: #fa724c;
+    /* -webkit-text-stroke-color: #fa724c; */
 }
 
 #current{
