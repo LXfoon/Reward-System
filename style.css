@@ -5,12 +5,35 @@
     padding: 0;
 }
 
+body{
+    background-color: #fffaee;
+}
+
+#title{
+    display: flex;
+}
+
+.img{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    margin-left: 33%;
+    margin-top: 50px;
+    padding-right: 10px;
+}
+
+#img2{
+    margin-left: 0;
+    padding-left: 10px;
+}
+
 h1{
     font-family: "Oranienbaum", serif;
     font-weight: 800;
     text-align: center;
     font-size: 40px;
-    padding: 25px 0;
+    padding: 50px 0;
+    color: #dab263;
 }
 
 #totPoint{
@@ -34,6 +57,7 @@ h3{
     font-weight: 800;
     font-size: 30px;
     margin-left: 15%;
+    color: #8a9a8d;
 }
 
 th{
@@ -53,18 +77,30 @@ p, td{
 }
 
 .point{
-    border: 3px solid black;
-    background-color: aliceblue;
+    border: 5px solid #f6b09c;
+    background-color: #f4c7ba;
     margin: auto;
     margin-left: 15%; 
     width: 69.5%; 
-    border-radius: 20px; 
+    border-radius: 20px;
+}
+
+.point h2{
+    color: #fd592c;
+    font-weight: 900;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: #fa724c;
+}
+
+#current{
+    color: #fcf3f1;
+    -webkit-text-stroke-width: 0;
 }
 
 #wrap{
     padding-top: 20px;
     margin-left: 15%;
-    background-color: aliceblue;
+    /* background-color: aliceblue; */
     display: flex;
     justify-content: space-between;
     gap: 100px;
@@ -78,21 +114,38 @@ p, td{
     height: 200px;
     padding: 10px;
     margin-top: auto;
-    background-color: rgb(53, 169, 169);
-    border: 3px solid black;
+    background-color: #fddaa1;
+    border: 5px solid #f6c26f;
     border-radius: 20px;
+}
+
+.txtCust{
+    background-color: #f5e3bf;
+    border: 1px solid #c5922e;
+    color: #6c5223;
+}
+
+.txtCust::placeholder{
+    color: #cfa24a;
+    font-style: italic;
+    opacity: 0.5;
 }
 
 .quick h3, .custPoint h3{
     margin-left: 0;
+    color: #bc790d;
     font-family: "Oranienbaum", serif;
 }
 
 #details, #history{
     display: flex;
-    width: 75%;
+    /* width: 75%; */
     margin-left: 15%; 
     /* background-color: blueviolet; */
+}
+
+#history{
+    max-height: 350px;
 }
 
 #details h4, #history h4, #details p, #history p{
@@ -109,18 +162,39 @@ p, td{
     min-width: 0;
     min-height: 200px;
     padding-bottom: 15px;
-    border: 3px solid black;
-    background-color: rgb(167, 167, 240);
+    border: 5px solid #b7bdb8;
+    background-color: #d1dbd4;
     border-radius: 10px;
-    width: 485px;
+    width: 535px;
 }
 
 #earnP, #earnHis{
-    margin-right: 8%;
+    margin-right: 7%;
+}
+
+
+#earnHis, #usedHis{
+   overflow-y: hidden;
+}
+
+#earnHis:hover, #usedHis:hover{
+    overflow-y: auto;
+}
+
+#earnP h4, #rewardP h4, #earnHis h4, #usedHis h4{
+    color: #4a604e;
+}
+
+#earnP th, #rewardP th, #earnHis th, #usedHis th{
+     color: #446b4b;
+}
+
+#earnP td, #rewardP td, #earnHis td, #usedHis td{
+    color: #525753;
 }
 
 #quickBtn{
-    margin-left: 10px;
+    margin-left: 45px;
     display: flex;
     justify-content: space-between;
 }
@@ -133,12 +207,19 @@ p, td{
     width: 200px;
     height: 70px;
     margin: 5px;
-    background-color: aqua;
+    background-color: #f5e3bf;
     border-radius: 15px;
+    border: 2px solid #c5922e;
+    box-shadow: 5px 5px 0 0 #af8e4b;
+}
+
+.btns h4, .btns p, .custPoint p{
+    color:  #6c5223;
 }
 
 .btns:hover{
-    background-color: rgb(0, 96, 96);
+    background-color: #e6d3ae;
+    box-shadow: 5px 5px 0 0 #7e6635;
 }
 
 .txtCust{
@@ -161,7 +242,9 @@ p, td{
 .custBtns{
     width: 40%;
     height: 30px;
-    background-color: aquamarine;
+    background-color: #f6b650;
+    color: #ffffff;
+    border: 2px hidden;
     border-radius: 7px;
     font-family: "Faustina", serif;
     font-size: 15px;
@@ -169,7 +252,7 @@ p, td{
 }
 
 .custBtns:hover{
-    background-color: rgb(5, 103, 70);
+    background-color: #f0990c;
 }
 
 table{
@@ -190,4 +273,10 @@ td{
     padding: 5px 0;
     text-align: center;
     font-size: 15px;
+}
+
+footer{
+    padding-top: 30px;
+    text-align: center;
+    color: #dab263;
 }

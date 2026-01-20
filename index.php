@@ -57,7 +57,9 @@ if(isset($_POST['quickSel'])){
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Productivity Reward System</h1>
+    <div id="title">
+    <img src="source.gif" alt="star" class = "img"><h1>Productivity Reward System</h1><img src="source.gif" alt="star" class = "img" id="img2">
+    </div>
 
     <div class="point">
         <h2>
@@ -83,7 +85,6 @@ if(isset($_POST['quickSel'])){
             ?>
         </h2>
     </div>
-<hr>
     
 <div id="wrap">
     <div class="quick">
@@ -140,9 +141,8 @@ if(isset($_POST['quickSel'])){
     </div>
 
     <br>
-    <hr>
 
-    <h3>Point Distribution</h3><br>
+    <h3>Point Distribution</h3>
     <div id="details">
         <div id="earnP">
         <h4>Earn Points</h4>
@@ -192,11 +192,6 @@ if(isset($_POST['quickSel'])){
                 <td>Workout</td>
                 <td>10</td>
             </tr>
-
-            <tr>
-                <td>Cooking</td>
-                <td>5</td>
-            </tr>
         </table>
         </div>
 
@@ -236,13 +231,12 @@ if(isset($_POST['quickSel'])){
     </div>
     </div>
 
-    <hr>
-    <h3>History</h3><br>
+    <br><h3>History</h3>
     <div id="history">
         <div id="earnHis">
         <h4>Earned</h4>
             <?php 
-            $earnSql = "SELECT * FROM point WHERE cal = 'P'";
+            $earnSql = "SELECT * FROM point WHERE cal = 'P' ORDER BY pointID DESC";
             $earnRes = mysqli_query($conn, $earnSql);
 
             if(mysqli_num_rows($earnRes) >0){?>
@@ -278,7 +272,7 @@ if(isset($_POST['quickSel'])){
         <div id="usedHis">
             <h4>Used</h4>
             <?php 
-                $usedSql = "SELECT * FROM point WHERE cal = 'N'";
+                $usedSql = "SELECT * FROM point WHERE cal = 'N'  ORDER BY pointID DESC";
                 $usedRes = mysqli_query($conn, $usedSql);
 
                 if(mysqli_num_rows($usedRes)>0) {?>
@@ -315,7 +309,6 @@ if(isset($_POST['quickSel'])){
 </body>
 
 <footer>
-    <hr>
     <p>Foon | laufoonxuan@gmail.com</p>
 </footer>
 </html>
