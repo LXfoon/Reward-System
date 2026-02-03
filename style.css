@@ -173,11 +173,11 @@ p, td{
 }
 
 
-#earnHis, #usedHis{
+#earnHis, #usedHis, #earnP, #rewardP{
    overflow-y: hidden;
 }
 
-#earnHis:hover, #usedHis:hover{
+#earnHis:hover, #usedHis:hover, #earnP:hover, #rewardP:hover{
     overflow-y: auto;
 }
 
@@ -194,18 +194,25 @@ p, td{
 }
 
 #quickBtn{
-    margin-left: 45px;
+    margin-left: 10%;
+    width: 100%;
+    max-height: 85%;
     display: flex;
     justify-content: space-between;
+    overflow:auto;
 }
 
-#btnTop, #btnBottom{
-    flex-wrap: 1;
+#quickBtn:hover{
+    overflow-y: hidden;
+}
+
+#btnsTop, #btnsBottom{
+    flex: 1;
 }
 
 .btns{
-    width: 200px;
-    height: 70px;
+    width: 10vw;
+    height: 8vh;
     margin: 5px;
     background-color: #f5e3bf;
     border-radius: 15px;
@@ -279,4 +286,119 @@ footer{
     padding-top: 30px;
     text-align: center;
     color: #dab263;
+}
+
+@media (max-width: 430px) {
+    body{
+        width: 230px;
+    }
+
+    #title{
+        margin-left: 20%;
+        width: 300px;
+    }
+
+   h1{
+    font-size: 30px;
+    width: 250px;
+   }
+
+   .img{
+        display: flex;
+        margin-left: 0;
+        margin-top: 70px;
+        padding-right: 0;
+    }
+
+    #img2{
+        padding-left: 0;
+    }
+
+    #totPoint{
+        font-size: 40px;
+    }
+
+    #current{
+        font-size: 30px;
+    }
+
+    .point{
+        margin-left: 15%;
+        width: 300px;
+    }
+
+    #wrap{
+        width: 320px;
+        margin-left: 15%;
+        height: auto;
+        display: block;
+    }
+
+    .quick,.custPoint{
+        width: 285px;
+    }
+
+    .quick{
+        margin-bottom: 20px;
+    }
+
+    #quickBtn{
+        margin-left: 10%;
+    }
+
+    .btns{
+        width: 110px;
+        margin-left: 0;
+    }
+    
+    #details, #history{
+        display: block;
+        margin-left: 15%;
+    }
+
+    #earnP, #rewardP, #earnHis, #usedHis{
+        width: 310px;
+        height: 280px;
+    }
+
+    #earnHis, #usedHis{
+        max-height: 280px;
+    }
+
+    #earnP, #earnHis{
+        margin-bottom: 20px;
+    }
+
+    #usedHis{
+        margin-bottom: 50px;
+    }
+
+    h3{
+        margin: 0;
+        text-align: center;
+    }
+
+    #subH3{
+        width: 250px;
+        margin-left: 30%;
+    }
+
+    table{
+        width: 280px;
+    }
+
+    th{
+        font-size: 15px;
+    }
+
+    td{
+        font-size: 13px;
+    }
+
+    footer {
+        position: absolute;
+        margin-top: 70%;
+        width: 200px;
+        margin-left: 25%;
+    }
 }

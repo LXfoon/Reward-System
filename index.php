@@ -142,7 +142,7 @@ if(isset($_POST['quickSel'])){
 
     <br>
 
-    <h3>Point Distribution</h3>
+    <h3 id= "subH3">Point Distribution</h3>
     <div id="details">
         <div id="earnP">
         <h4>Earn Points</h4>
@@ -231,7 +231,7 @@ if(isset($_POST['quickSel'])){
     </div>
     </div>
 
-    <br><h3>History</h3>
+    <br><h3 id= "subH3">History</h3>
     <div id="history">
         <div id="earnHis">
         <h4>Earned</h4>
