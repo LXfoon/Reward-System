@@ -12,7 +12,6 @@ A personal point-based productivity tracker designed to gamify daily habits and 
 
 ## Technologies Used
 
-- HTML
+- PHP
 - CSS
-- JavaScript
--  MySQL
+- MySQL
